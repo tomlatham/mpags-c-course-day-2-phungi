@@ -8,12 +8,26 @@ mpags-cipher.cpp
 MPAGSCipher/TransformChar.cpp
 MPAGSCipher/TransformChar.hpp
 MPAGSCipher/processCommandLine.cpp
-MPAGSCipher/processCommandLine.hpp)
+MPAGSCipher/processCommandLine.hpp
+)
+add_executable(caesar
+caesar.cpp
+MPAGSCipher/TransformCharCaesar.cpp
+MPAGSCipher/TransformCharCaesar.hpp
+MPAGSCipher/processCommandLineCaesar.cpp
+MPAGSCipher/processCommandLineCaesar.hpp
+)
+target_include_directories(caesar
+  PRIVATE MPAGSCipher
+)
 
 target_include_directories(mpags-cipher 
   PRIVATE MPAGSCipher
 )
 
 target_compile_features(mpags-cipher
+	PRIVATE cxx_auto_type cxx_range_for cxx_uniform_initialization cxx_binary_literals
+	)
+target_compile_features(caesar
 	PRIVATE cxx_auto_type cxx_range_for cxx_uniform_initialization cxx_binary_literals
 	)

@@ -6,6 +6,7 @@
 #include <cctype>
 #include "TransformChar.hpp"
 #include "processCommandLine.hpp"
+#include <fstream>
 
 int main(int argc, char* argv[])
 {
@@ -23,7 +24,7 @@ int main(int argc, char* argv[])
   std::string outputFile {""};
 
   bool a=processCommandLine(cmdLineArgs, helpRequested, versionRequested,inputFile,outputFile);
-  if(a==true){
+  if(a==false){
       std::cout<<"whoooops~"<<std::endl;
       return 0;
 
@@ -84,6 +85,7 @@ int main(int argc, char* argv[])
               << outputFile
               << "') not implemented yet, using stdout\n";
   }
+
 
   std::cout << inputText << std::endl;
 
